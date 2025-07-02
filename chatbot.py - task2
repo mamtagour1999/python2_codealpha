@@ -1,0 +1,39 @@
+def clean_input(user_input):
+    """
+    Clean and standardize user input for consistent comparison.
+    Converts to lowercase and removes extra spaces.
+    """
+    return user_input.strip().lower()
+
+
+def get_response(user_input):
+    """
+    Return the chatbot's response based on cleaned input.
+    """
+    if user_input == "hello":
+        return "hi"
+    elif user_input == "how are you":
+        return "I am fine, thanks!"
+    elif user_input == "bye":
+        return "goodbye"
+    else:
+        return "I don't understand that."
+
+
+def chatbot():
+    """
+    Main chatbot loop that interacts with the user until 'bye' is received.
+    """
+    print("Chatbot: Hello! I am a simple chatbot. Type 'bye' to exit.")
+    while True:
+        user_input = input("You: ")
+        cleaned_input = clean_input(user_input)
+        response = get_response(cleaned_input)
+        print(f"Chatbot: {response}")
+        
+        if cleaned_input == "bye":
+            break
+
+
+if __name__ == "__main__":
+    chatbot()
